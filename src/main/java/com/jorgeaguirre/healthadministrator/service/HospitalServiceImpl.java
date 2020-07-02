@@ -12,7 +12,7 @@ public class HospitalServiceImpl implements HospitalService {
     private HospitalRepository hospitalRepository;
 
     public HospitalServiceImpl(HospitalRepository hospitalRepository) {
-        this. hospitalRepository = hospitalRepository;
+        this.hospitalRepository = hospitalRepository;
     }
 
     @Override
