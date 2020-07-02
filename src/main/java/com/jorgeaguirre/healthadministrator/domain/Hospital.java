@@ -1,16 +1,13 @@
 package com.jorgeaguirre.healthadministrator.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
+@Document
 public class Hospital {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private String id;
 
     private String name;
 
@@ -22,11 +19,11 @@ public class Hospital {
 
     @Override
     public String toString() {
-        return String.format("Hospital[id=%d, name='%s']",
+        return String.format("Hospital[id='%s', name='%s']",
                 id, name);
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 

@@ -22,6 +22,8 @@ public class HealthAdministratorApplication {
 	@Bean
 	public CommandLineRunner demo(HospitalRepository repository) {
 		return args -> {
+			repository.deleteAll();
+
 			// save a few hospitals
 			repository.save(new Hospital("Viedma"));
 			repository.save(new Hospital("Salomon Clein"));
@@ -34,13 +36,6 @@ public class HealthAdministratorApplication {
 			for (Hospital hospital : repository.findAll()) {
 				log.info(hospital.toString());
 			}
-			log.info("");
-
-			// fetch an individual hospital by ID
-			Hospital hospital = repository.findById(1L);
-			log.info("Hospital found with findById(1L):");
-			log.info("---------------------------------");
-			log.info(hospital.toString());
 			log.info("");
 
 			// fetch hospitals by name
