@@ -24,11 +24,13 @@ This application was tested with the following software:
     ```
 
 3. Open another cmd and navigate to the project folder:
-  3.1. Navigate to client folder:
+
+4. Navigate to client folder:
     ```
     >cd src\main\webapp
     ```
-  3.2. Run client server:
+    
+5. Run client server:
     ```
     >ng serve --open
     ```
