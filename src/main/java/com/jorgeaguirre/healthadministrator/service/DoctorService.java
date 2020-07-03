@@ -7,4 +7,5 @@ import java.util.List;
 public interface DoctorService {
 
     List<Doctor> findAll();
+    List<Doctor> findByHospital(String hospital);
 }

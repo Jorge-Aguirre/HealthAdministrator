@@ -12,11 +12,13 @@ public class PersonServiceImpl implements PersonService {
     private PersonRepository personRepository;
 
     public PersonServiceImpl(PersonRepository personRepository) {
+
         this.personRepository = personRepository;
     }
 
     @Override
     public List<Person> findAll() {
+
         return personRepository.findAll();
     }
 }

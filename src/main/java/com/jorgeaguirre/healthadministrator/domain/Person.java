@@ -22,6 +22,7 @@ public class Person {
     private String address;
 
     public Person(String name, String lastName, Date birthDate, String address) {
+
         this.name = name;
         this.lastName = lastName;
         this.birthDate = birthDate;

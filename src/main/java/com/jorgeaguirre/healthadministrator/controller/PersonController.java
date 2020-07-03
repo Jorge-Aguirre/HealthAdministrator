@@ -13,11 +13,13 @@ public class PersonController {
     private PersonService personService;
 
     public PersonController(PersonService personService) {
+
         this.personService = personService;
     }
 
     @GetMapping("/people")
     public List<Person> people() {
+
         return personService.findAll();
     }
 }

@@ -16,6 +16,7 @@ public class Hospital {
     public Hospital() {}
 
     public Hospital(String name) {
+
         this.name = name;
     }
 }
