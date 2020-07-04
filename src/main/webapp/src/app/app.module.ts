@@ -14,11 +14,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MasterComponent } from './components/master/master.component';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
     AppComponent,
     HospitalsListComponent,
+    MasterComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatIconModule,
     MatToolbarModule,
     MatCardModule,
-    MatGridListModule
+    MatGridListModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
