@@ -7,7 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -21,15 +20,37 @@ public class HospitalController {
     }
 
     @GetMapping("/hospitals")
-    public List<Hospital> hospitals() {
+    public ResponseEntity hospitals() {
 
-        return hospitalService.findAll();
+        try {
+            return ResponseEntity
+                    .status(HttpStatus.OK)
+                    .body(hospitalService.findAll());
+        } catch (Exception e) {
+            return ResponseEntity
+                    .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(e.getMessage());
+        }
     }
 
     @GetMapping("/hospitals/{id}")
-    public Optional<Hospital> hospital(@PathVariable String id) {
+    public ResponseEntity hospital(@PathVariable String id) {
 
-        return hospitalService.findById(id);
+        try {
+            Optional<Hospital> hospital = hospitalService.findById(id);
+
+            return hospital.isPresent() ?
+                    ResponseEntity
+                        .status(HttpStatus.OK)
+                        .body(hospital.get()) :
+                    ResponseEntity
+                        .status(HttpStatus.NOT_FOUND)
+                        .build();
+        } catch (Exception e) {
+            return ResponseEntity
+                    .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(e.getMessage());
+        }
     }
 
     @PostMapping("/hospitals")
@@ -41,7 +62,7 @@ public class HospitalController {
                     .body(hospitalService.save(hospital));
         } catch (DuplicateKeyException e) {
             return ResponseEntity
-                    .status(HttpStatus.BAD_REQUEST)
+                    .status(HttpStatus.CONFLICT)
                     .body(e.getMessage());
         }
     }
