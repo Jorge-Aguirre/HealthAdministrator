@@ -2,6 +2,9 @@ package com.jorgeaguirre.healthadministrator.controller;
 
 import com.jorgeaguirre.healthadministrator.domain.Hospital;
 import com.jorgeaguirre.healthadministrator.service.HospitalService;
+import org.springframework.dao.DuplicateKeyException;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,8 +33,16 @@ public class HospitalController {
     }
 
     @PostMapping("/hospitals")
-    public Hospital createHospital(@RequestBody Hospital hospital) {
+    public ResponseEntity createHospital(@RequestBody Hospital hospital) {
 
-        return hospitalService.save(hospital);
+        try {
+            return ResponseEntity
+                    .status(HttpStatus.CREATED)
+                    .body(hospitalService.save(hospital));
+        } catch (DuplicateKeyException e) {
+            return ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body(e.getMessage());
+        }
     }
 }
