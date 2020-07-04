@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs'
+import { Observable } from 'rxjs';
+import { Hospital } from '../models/hospital';
 
 const baseUrl = "http://localhost:8080/hospitals";
 
@@ -11,8 +12,8 @@ export class HospitalService {
 
   constructor(private http: HttpClient) { }
 
-  getAll(): Observable<any> {
-    return this.http.get(baseUrl);
+  getAll(): Observable<Hospital[]> {
+    return this.http.get<Hospital[]>(baseUrl);
   }
 
   get(id: string): Observable<any> {

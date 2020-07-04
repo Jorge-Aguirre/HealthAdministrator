@@ -1,61 +1,26 @@
-<div class="list row">
-  <div class="col-md-8">
-    <div class="input-group mb-3">
-      <input 
-        type="text"
-        class="form-control"
-        placeholder="Search hospitals"
-        [(ngModel)]="title" 
-      />
-      <div class="input-group-append">
-        <button
-          class="btn btn-outline-secondary"
-          type="button"
-        >
-          Search
-        </button>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-6">
-      <h4>Hospital List</h4>
-      <ul class="list-group">
-        <li
-          class="list-group-item"
-          *ngFor="let hospital of hospitals; let i = index"
-          [class.active]="i == currentIndex"
-        >
+<h2 class="">Hospitals</h2>
+<mat-grid-list cols="4">
+  <ng-container *ngFor="let hospital of hospitals; let i = index">
+    <mat-grid-tile>
+      <mat-card class="hospital-card">
+        <mat-card-header>
+          <mat-card-title>
+            <h4>{{ hospital.name }}</h4>
+          </mat-card-title>
+        </mat-card-header>
+      </mat-card>
+    </mat-grid-tile>
+  </ng-container>
+</mat-grid-list>
+<!--<div>
+  <h3>Hospital List</h3>
+  <div class="hospital-list">
+    <div *ngFor="let hospital of hospitals; let i = index">
+      <mat-card class="hospital-card">
+        <mat-card-footer>
           {{ hospital.name }}
-        </li>
-      </ul>
-
-      <button class="m-3 btn btn-sm btn-danger">
-          Remove All
-      </button>
-  </div>
-  <div class="col-md-6">
-    <div *ngIf="currentHospital">
-      <h4>Hospital</h4>
-      <div>
-        <label><strong>Title:</strong></label> {{ currentHospital.title }}
-      </div>
-      <div>
-        <label><strong>Description:</strong></label>
-        {{ currentHospital.description }}
-      </div>
-      <div>
-        <label><strong>Status:</strong></label>
-        {{ currentHospital.published ? "Published" : "Pending" }}
-      </div>
-
-      <a class="badge badge-warning" routeLink="/hospitals/{{ currentHospital.id}}">
-        Edit
-      </a>
-    </div>
-
-    <div *ngIf="!currentHospital">
-      <br />
-      <p>Please click on a Hospital</p>
+        </mat-card-footer>
+      </mat-card>
     </div>
   </div>
-</div>
+</div>-->

@@ -1,17 +1,23 @@
 <div>
-  <nav class="navbar navbar-expand navbar-dark bg-dark">
-    <a href="#" class="navbar-brand">Health Administrator</a>
-    <div class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a routerLink="hospitals" class="nav-link">Hospitals</a>
-      </li>
-      <li class="nav-item">
-        <a routerLink="add" class="nav-link">Add</a>
-      </li>
-    </div>
-  </nav>
-
-  <div class="container mt-3">
-    <router-outlet></router-outlet>
-  </div>
+  <mat-sidenav-container>
+    <mat-sidenav-content>
+      <mat-toolbar color="primary">
+       <div>
+         <a>
+            Health Administrator
+         </a>
+       </div>
+      </mat-toolbar>
+      <main>
+      </main>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  <mat-grid-list cols="4" rowHeight="870px">
+    <mat-grid-tile class="details" colspan="3">
+      <router-outlet></router-outlet>
+    </mat-grid-tile>
+    <mat-grid-tile class="master" colspan="1">
+      <router-outlet name="detail"></router-outlet>
+    </mat-grid-tile>
+  </mat-grid-list>
 </div>

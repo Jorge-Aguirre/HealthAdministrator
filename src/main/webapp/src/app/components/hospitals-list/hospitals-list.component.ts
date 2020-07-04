@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HospitalService } from 'src/app/services/hospital.service';
+import { Hospital } from '../../models/hospital';
 
 @Component({
   selector: 'app-hospitals-list',
@@ -8,10 +9,9 @@ import { HospitalService } from 'src/app/services/hospital.service';
 })
 export class HospitalsListComponent implements OnInit {
 
-  hospitals: any;
-  currentHospital = null;
+  hospitals: Hospital[];
+  currentHospital: Hospital = null;
   currentIndex = -1;
-  title = ''
 
   constructor(private hospitalService: HospitalService) { }
 

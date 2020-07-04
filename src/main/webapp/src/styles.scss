@@ -1,4 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  margin: 0 2px 0 2px;
+}
+
+.details .mat-figure {
+  padding: 5px 30px !important;
+  align-items: initial !important;
+  justify-content: initial !important;
+  color: navy;
+  overflow: auto;
+}
+
+app-hospitals-list {
+  min-width: 100%;
+}
