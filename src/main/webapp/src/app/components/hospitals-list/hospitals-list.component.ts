@@ -32,7 +32,6 @@ export class HospitalsListComponent implements OnInit {
       .subscribe(
         data => {
           this.hospitals = data;
-          console.log(data);
         },
         error => {
           console.error(error);
@@ -58,7 +57,9 @@ export class HospitalsListComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('the dialog was closed');
+      if (result !== undefined && result) {
+        this.refreshList();
+      }
     })
   }
 }

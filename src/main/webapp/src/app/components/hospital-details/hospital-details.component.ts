@@ -28,7 +28,6 @@ export class HospitalDetailsComponent implements OnInit {
           data => {
             this.hospital = data;
             this.communicationService.updateSelectedHospital(data);
-            console.log(data);
           },
           error => {
             console.error(error);

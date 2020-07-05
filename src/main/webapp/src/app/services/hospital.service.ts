@@ -20,7 +20,7 @@ export class HospitalService {
     return this.http.get<Hospital>(`${baseUrl}/${id}`);
   }
 
-  create(data: any): Observable<any> {
-    return this.http.post(baseUrl, data);
+  create(data: Hospital): Observable<Hospital> {
+    return this.http.post<Hospital>(baseUrl, data);
   }
 }
