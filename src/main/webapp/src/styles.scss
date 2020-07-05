@@ -12,7 +12,8 @@ body {
   overflow: auto;
 }
 
-app-hospitals-list, app-hospital-details {
+app-hospitals-list, app-hospital-details, 
+app-doctors-list, app-patients-list {
   min-width: 100%;
 }
 

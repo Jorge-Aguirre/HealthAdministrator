@@ -1,4 +1,13 @@
-<h2 class="breadcrumb">Hospitals  >  {{ hospital.name || ''}}</h2>
+<h2 class="breadcrumb">
+  <a mat-button routerLink="/hospitals">
+    Hospitals > 
+  </a>
+  <div *ngIf="!!hospital.name">
+    <a mat-button routerLink="['hosptials', hospital.name]">
+      {{ hospital.name }}
+    </a>
+  </div>
+</h2>
 <div class="hospital-detail">
   <mat-card>
     <mat-card-header>

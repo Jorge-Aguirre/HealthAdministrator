@@ -1,1 +1,26 @@
-<p>patients-list works!</p>
+<h2 class="breadcrumb">
+  <a mat-button routerLink="/hospitals">
+    Hospitals > 
+  </a>
+  <div *ngIf="!!hospital.name">
+    <a mat-button *ngIf="!!hospital.name" routerLink="../">
+      {{ hospital.name }}
+    </a>
+    <a mat-button >
+      Patients >
+    </a>
+  </div>
+</h2>
+<mat-grid-list cols="4">
+  <ng-container *ngFor="let patient of patients; let i = index">
+    <mat-grid-tile>
+      <mat-card class="patient-card">
+        <mat-card-header>
+          <mat-card-title>
+            <h4>{{ patient.person.name }}</h4>
+          </mat-card-title>
+        </mat-card-header>
+      </mat-card>
+    </mat-grid-tile>
+  </ng-container>
+</mat-grid-list>
