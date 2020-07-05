@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HospitalService } from 'src/app/services/hospital.service';
 import { CommunicationService } from 'src/app/services/communication.service';
+import { Router } from '@angular/router'
 import { Hospital } from '../../models/hospital';
 
 @Component({
@@ -11,17 +12,19 @@ import { Hospital } from '../../models/hospital';
 export class HospitalsListComponent implements OnInit {
 
   hospitals: Hospital[];
-  currentHospital: Hospital = null;
   currentIndex = -1;
 
   constructor(private hospitalService: HospitalService,
-              private communicationService: CommunicationService) { }
+              private communicationService: CommunicationService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.retrieveHospitals();
+
+    this.communicationService.updateSelectedHospital(null);
   }
 
-  retrieveHospitals(): void {
+  private retrieveHospitals(): void {
     this.hospitalService.getAll()
       .subscribe(
         data => {
@@ -29,18 +32,19 @@ export class HospitalsListComponent implements OnInit {
           console.log(data);
         },
         error => {
-          console.log(error);
+          console.error(error);
         }
       )
   }
 
   refreshList(): void {
     this.retrieveHospitals();
-    this.currentHospital = null;
     this.currentIndex = -1;
   }
 
   updateSelectedHospital(hospital: Hospital): void {
     this.communicationService.updateSelectedHospital(hospital);
+  
+    this.router.navigate(['/hospitals', hospital.id ]);
   }
 }

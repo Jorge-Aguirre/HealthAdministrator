@@ -16,8 +16,8 @@ export class HospitalService {
     return this.http.get<Hospital[]>(baseUrl);
   }
 
-  get(id: string): Observable<any> {
-    return this.http.get(`${baseUrl}/${id}`);
+  get(id: string): Observable<Hospital> {
+    return this.http.get<Hospital>(`${baseUrl}/${id}`);
   }
 
   create(data: any): Observable<any> {
