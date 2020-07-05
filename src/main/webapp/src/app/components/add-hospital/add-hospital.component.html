@@ -1,1 +1,12 @@
-<p>add-hospital works!</p>
+<h1 mat-dialog-title>New Hospital</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <p>Name:</p>
+    <mat-label>Name</mat-label>
+    <input matInput [(ngModel)]="hospital.name">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button class="cancel" mat-raised-button (click)="cancelClick()">Cancel</button>
+  <button class="save" mat-raised-button (click)="saveHospital()">Save</button>
+</div>

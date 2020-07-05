@@ -3,6 +3,8 @@ import { HospitalService } from 'src/app/services/hospital.service';
 import { CommunicationService } from 'src/app/services/communication.service';
 import { Router } from '@angular/router'
 import { Hospital } from '../../models/hospital';
+import { MatDialog } from '@angular/material/dialog';
+import { AddHospitalComponent } from '../add-hospital/add-hospital.component';
 
 @Component({
   selector: 'app-hospitals-list',
@@ -16,7 +18,8 @@ export class HospitalsListComponent implements OnInit {
 
   constructor(private hospitalService: HospitalService,
               private communicationService: CommunicationService,
-              private router: Router) { }
+              private router: Router,
+              public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.retrieveHospitals();
@@ -46,5 +49,16 @@ export class HospitalsListComponent implements OnInit {
     this.communicationService.updateSelectedHospital(hospital);
   
     this.router.navigate(['/hospitals', hospital.id ]);
+  }
+
+  newHospitalModal(): void {
+    const dialogRef = this.dialog.open(AddHospitalComponent, {
+      width: '250px',
+      data: new Hospital()
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('the dialog was closed');
+    })
   }
 }

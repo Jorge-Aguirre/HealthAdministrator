@@ -1,4 +1,9 @@
-<h2 class="breadcrumb">Hospitals</h2>
+<h2 class="breadcrumb">
+  <a mat-button routerLink="/hospitals">
+    Hospitals > 
+   </a>
+  <button mat-raised-button color="primary" (click)="newHospitalModal()">New</button>
+</h2>
 <mat-grid-list cols="4">
   <ng-container *ngFor="let hospital of hospitals; let i = index">
     <mat-grid-tile>
