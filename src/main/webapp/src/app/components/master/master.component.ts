@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Hospital } from '../../models/hospital';
 import { CommunicationService } from '../../services/communication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-master',
@@ -11,7 +12,8 @@ export class MasterComponent implements OnInit {
 
   selectedHospital: Hospital = null;
 
-  constructor(private communicationService: CommunicationService) { }
+  constructor(private router: Router,
+              private communicationService: CommunicationService) { }
 
   ngOnInit(): void {
     this.communicationService.getSelectedHospital()
@@ -20,4 +22,11 @@ export class MasterComponent implements OnInit {
       })
   }
 
+  firstMasterButtonClick(): void {
+    this.router.navigate(['hospitals', this.selectedHospital.id, 'doctors']);
+  }
+
+  secondMasterButtonClick(): void {
+    this.router.navigate(['hospitals', this.selectedHospital.id, 'patients']);
+  }
 }

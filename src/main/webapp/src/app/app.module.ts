@@ -22,6 +22,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { AddHospitalComponent } from './components/add-hospital/add-hospital.component';
 import { FormsModule } from '@angular/forms';
+import { DoctorsListComponent } from './components/doctors-list/doctors-list.component';
+import { PatientsListComponent } from './components/patients-list/patients-list.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { FormsModule } from '@angular/forms';
     MasterComponent,
     HospitalsListComponent,
     HospitalDetailsComponent,
-    AddHospitalComponent
+    AddHospitalComponent,
+    DoctorsListComponent,
+    PatientsListComponent
   ],
   imports: [
     BrowserModule,
