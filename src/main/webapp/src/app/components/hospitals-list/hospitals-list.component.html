@@ -2,7 +2,8 @@
 <mat-grid-list cols="4">
   <ng-container *ngFor="let hospital of hospitals; let i = index">
     <mat-grid-tile>
-      <mat-card class="hospital-card">
+      <mat-card class="hospital-card"
+                (click)="updateSelectedHospital(hospital)">
         <mat-card-header>
           <mat-card-title>
             <h4>{{ hospital.name }}</h4>
@@ -12,15 +13,3 @@
     </mat-grid-tile>
   </ng-container>
 </mat-grid-list>
-<!--<div>
-  <h3>Hospital List</h3>
-  <div class="hospital-list">
-    <div *ngFor="let hospital of hospitals; let i = index">
-      <mat-card class="hospital-card">
-        <mat-card-footer>
-          {{ hospital.name }}
-        </mat-card-footer>
-      </mat-card>
-    </div>
-  </div>
-</div>-->

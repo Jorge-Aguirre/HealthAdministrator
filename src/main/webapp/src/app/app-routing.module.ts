@@ -8,7 +8,6 @@ import { MasterComponent } from './components/master/master.component'
 const routes: Routes = [
   { path: '', redirectTo: 'hospitals', pathMatch: 'full' },
   { path: 'hospitals', component: HospitalsListComponent },
-  { path: 'hospitals', component: MasterComponent, outlet: "detail" },
   { path: 'hospitals/:id', component: HospitalDetailsComponent },
   { path: 'add', component: AddHospitalComponent }
 ];

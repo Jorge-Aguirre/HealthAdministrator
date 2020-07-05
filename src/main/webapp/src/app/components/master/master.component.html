@@ -1,3 +1,15 @@
-<button mat-raised-button color="primary">Doctors</button>
-<button mat-raised-button color="primary">Patients</button>
-<button mat-raised-button color="primary">Specialities</button>
+<button mat-raised-button 
+        color="primary"
+        [disabled]="selectedHospital === null">
+  Doctors
+</button>
+<button mat-raised-button
+        color="primary"
+        [disabled]="selectedHospital === null">
+  Patients
+</button>
+<button mat-raised-button 
+        color="primary"
+        [disabled]="selectedHospital === null">
+  Specialities
+</button>

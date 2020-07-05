@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Hospital } from '../../models/hospital';
+import { CommunicationService } from '../../services/communication.service';
 
 @Component({
   selector: 'app-master',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MasterComponent implements OnInit {
 
-  constructor() { }
+  selectedHospital: Hospital = null;
+
+  constructor(private communicationService: CommunicationService) { }
 
   ngOnInit(): void {
+    this.communicationService.getSelectedHospital()
+      .subscribe(hospital => {
+        this.selectedHospital = hospital;
+      })
   }
 
 }

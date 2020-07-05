@@ -1,4 +1,4 @@
-export interface Hospital {
+export class Hospital {
   id: string;
   name: string;
 }

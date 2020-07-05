@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HospitalService } from 'src/app/services/hospital.service';
+import { CommunicationService } from 'src/app/services/communication.service';
 import { Hospital } from '../../models/hospital';
 
 @Component({
@@ -13,7 +14,8 @@ export class HospitalsListComponent implements OnInit {
   currentHospital: Hospital = null;
   currentIndex = -1;
 
-  constructor(private hospitalService: HospitalService) { }
+  constructor(private hospitalService: HospitalService,
+              private communicationService: CommunicationService) { }
 
   ngOnInit(): void {
     this.retrieveHospitals();
@@ -38,4 +40,7 @@ export class HospitalsListComponent implements OnInit {
     this.currentIndex = -1;
   }
 
+  updateSelectedHospital(hospital: Hospital): void {
+    this.communicationService.updateSelectedHospital(hospital);
+  }
 }
