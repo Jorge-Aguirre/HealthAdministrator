@@ -6,35 +6,28 @@ import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
 
-import java.util.List;
+import java.util.Date;
 
 @Getter
 @NoArgsConstructor
-@Document(collection = "patients")
-public class Patient {
+@Document(collection = "notes")
+public class Note {
 
     @Id
     private String id;
 
-    @DBRef
-    @Setter
-    private Person person;
+    private String hospitalId;
 
-    @DBRef
-    @Setter
-    private List<Note> notes;
+    private String doctorId;
 
-    @Field("attendedIn")
-    private List<String> hospitals;
+    private String patientId;
+
+    private String description;
+
+    private Date date;
 
     @DBRef
     @Setter
     private TrailEntry trailEntry;
-
-    public Patient(Person person) {
-
-        this.person = person;
-    }
 }

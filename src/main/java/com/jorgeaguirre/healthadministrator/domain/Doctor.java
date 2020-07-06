@@ -25,6 +25,14 @@ public class Doctor {
     @Field("workingAt")
     private Set<String> hospitals;
 
+    @DBRef
+    @Setter
+    private Set<Speciality> specialities;
+
+    @DBRef
+    @Setter
+    private TrailEntry trailEntry;
+
     public Doctor(Person person) {
 
         this.person = person;
