@@ -52,6 +52,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/auth/login")
                 .permitAll()
+                .antMatchers("/hospitals/**")
+                .authenticated()
                 .and()
                 .csrf()
                 .disable()
