@@ -1,4 +1,4 @@
-package com.jorgeaguirre.healthadministrator;
+package com.jorgeaguirre.healthadministrator.configs;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

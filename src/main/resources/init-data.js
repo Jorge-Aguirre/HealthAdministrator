@@ -1,5 +1,52 @@
-// create database
-use healthAdministrator
+// roles collection
+db.roles.createIndex({ "role": 1 }, { unique: true })
+
+db.roles.insertMany([
+{
+    "_id": ObjectId("5f04c44d1c04e3d751d576a3"),
+    "role": "Doctor"
+}, {
+    "_id": ObjectId("5f04c4581c04e3d751d576a4"),
+    "role": "Patient"
+}])
+
+// users collection
+db.users.createIndex({"username": 1}, {unique: true})
+
+db.users.insertMany([
+{
+    "_id": ObjectId("5f04d6411c04e3d751d576a7"),
+    "username": "jorge",
+    "password": "$2y$12$rzo5Pan.mTdaD8zABKbpW.MZOMMQwS5Y2g/zGcACfFpdQDyoHaBBu",
+    "person": {
+        "$ref": "people",
+        "$id": ObjectId("5efe632298b62ecff6d8a94a"),
+        "$db": "healthAdministrator"
+    },
+    "roles": [
+        {
+            "$ref": "roles",
+            "$id": ObjectId("5f04c44d1c04e3d751d576a3"),
+            "$db": "healthAdministrator"
+        }
+    ]
+}, {
+    "_id": ObjectId("5f04d6591c04e3d751d576a8"),
+    "username": "rossio",
+    "password": "$2y$12$8KhPwsgGYGjeSle1yFCqOecYrSi/i4fUMyupoid/wrJb302kXDtyi",
+    "person": {
+        "$ref": "people",
+        "$id": ObjectId("5efe644498b62ecff6d8a94c"),
+        "$db": "healthAdministrator"
+    },
+    "roles": [
+        {
+            "$ref": "roles",
+            "$id": ObjectId("5f04c4581c04e3d751d576a4"),
+            "$db": "healthAdministrator"
+        }
+    ]
+}])
 
 // hospitals collection
 db.hospitals.createIndex({ "name": 1 }, { unique: true})
